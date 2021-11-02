@@ -7,7 +7,8 @@ import com.pingan.pbear.util.JsonUtil._
 import com.pingan.pbear.util.SetupJdbc
 import com.typesafe.config.ConfigFactory
 import kafka.serializer.StringDecoder
-import org.apache.spark.{Logging, SparkConf}
+import org.apache.spark.SparkConf
+import org.apache.spark.internal.Logging
 import org.apache.spark.streaming.kafka.KafkaUtils
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 import scalikejdbc._

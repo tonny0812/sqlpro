@@ -15,25 +15,25 @@
 
     </modules>
     <repositories>
-        <!--<repository>-->
-            <!--<id>alimaven</id>-->
-            <!--<name>aliyun maven</name>-->
-            <!--<url>http://maven.aliyun.com/nexus/content/groups/public/</url>-->
-        <!--</repository>-->
-        <!--<repository>-->
-            <!--<id>mvn-repo-nlp</id>-->
-            <!--<url>http://maven.nlpcn.org/</url>-->
-        <!--</repository>-->
-        <!--<repository>-->
-            <!--<id>spray repo</id>-->
-            <!--<url>http://repo.spray.io</url>-->
-        <!--</repository>-->
+        <repository>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>mvn-repo-nlp</id>
+            <url>http://maven.nlpcn.org/</url>
+        </repository>
+        <repository>
+            <id>spray repo</id>
+            <url>http://repo.spray.io</url>
+        </repository>
     </repositories>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <scala.version>2.11.12</scala.version>
-        <spark.version>2.3.3</spark.version>
+        <spark.version>2.3.4</spark.version>
         <anjs.version>5.0.3</anjs.version>
         <anjs.tries.version>1.5</anjs.tries.version>
         <nlp.version>1.7</nlp.version>
@@ -54,6 +54,7 @@
         <httpcore.version>4.4.4</httpcore.version>
         <es.version>2.4.3</es.version>
         <geoip2.version>2.5.0</geoip2.version>
+        <scalatest.version>2.2.4</scalatest.version>
     </properties>
 
     <dependencyManagement>
@@ -111,7 +112,7 @@
             <dependency>
                 <groupId>org.apache.spark</groupId>
                 <artifactId>spark-streaming-kafka_2.11</artifactId>
-                <version>${spark.version}</version>
+                <version>1.6.3</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.spark</groupId>
@@ -180,7 +181,7 @@
             </dependency>
             <dependency>
                 <groupId>io.spray</groupId>
-                <artifactId>spray-can_2.10</artifactId>
+                <artifactId>spray-can_2.11</artifactId>
                 <version>${spray.version}</version>
             </dependency>
             <dependency>

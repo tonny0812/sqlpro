@@ -4,23 +4,22 @@ import java.io.{ObjectInputStream, ObjectOutputStream}
 
 import com.pingan.pbear.common.AppConf
 import com.pingan.pbear.udf.nlp.AnsjNLP
-import com.typesafe.config.{Config, ConfigFactory}
 import org.apache.hadoop.fs.{FileSystem, Path}
+import org.apache.spark.internal.Logging
 import org.apache.spark.mllib.feature._
 import org.apache.spark.sql.SQLContext
-import org.apache.spark.{Logging, SparkConf, SparkContext}
-import com.pingan.pbear.util.HDFSTool.{getFileSystem, getHdfsRoot}
+import org.apache.spark.{SparkConf, SparkContext}
 
 /**
-  * Created by zhangrunqin on 16-11-29.
-  *
-  * 配置文件:默认使用/conf/application.conf
-  *
-  * idf建模:根据指定数据源进行IDF建模,然后将IDF模型存入指定HDFS位置
-  *
-  * 使用: com.pingan.pbear.model.IdfModel /conf/yourconfig.conf
-  */
-object IdfModel extends Logging{
+ * Created by zhangrunqin on 16-11-29.
+ *
+ * 配置文件:默认使用/conf/application.conf
+ *
+ * idf建模:根据指定数据源进行IDF建模,然后将IDF模型存入指定HDFS位置
+ *
+ * 使用: com.pingan.pbear.model.IdfModel /conf/yourconfig.conf
+ */
+object IdfModel extends Logging {
 
   def main(args: Array[String]): Unit = {
     log.info("\nIDF modeling beginning......\n")
@@ -36,11 +35,12 @@ object IdfModel extends Logging{
     AnsjNLP.loadUserdefineWords(fs, hdfsRoot + AppConf.getUserDictFile)
     val doc1 = "500彩票网,据世卫组织统计，当今超过1400万艾滋病毒感染者仍然对自身状况一无所知，其中的许多人是艾滋病毒感染的高风险人群，他们往往很难获得现有检测服务,澳大利亚失业率消费者情绪指数,"
 
+    import sqlContext.implicits._
     //读取新闻数据并分词
     val df = sqlContext.read.format("json").load(hdfsRoot + AppConf.getTrainDataPath)
     val docsTokenize = df.select("title", "content").map(r => r.mkString(" ")).
       mapPartitions(curPartition => {
-        for(item <- curPartition) yield AnsjNLP.ansjWordSeg(item)
+        for (item <- curPartition) yield AnsjNLP.ansjWordSeg(item)
       })
     log.info("docsTokenize size = " + docsTokenize.count)
 
@@ -57,12 +57,12 @@ object IdfModel extends Logging{
   }
 
   /**
-    * 写IDF文件
-    *
-    * @param idf IDFModel对象
-    * @param fs 文件系统对象
-    * @param idfPath idf存储路径
-    */
+   * 写IDF文件
+   *
+   * @param idf     IDFModel对象
+   * @param fs      文件系统对象
+   * @param idfPath idf存储路径
+   */
   def saveIdfModel(idf: IDFModel, fs: FileSystem, idfPath: Path): Unit = {
     // 缓存到磁盘
     val oos: ObjectOutputStream = new ObjectOutputStream(fs.create(idfPath))
@@ -72,11 +72,12 @@ object IdfModel extends Logging{
   }
 
   /**
-    * 读取idf文件
-    * @param fs
-    * @param idfPath
-    * @return
-    */
+   * 读取idf文件
+   *
+   * @param fs
+   * @param idfPath
+   * @return
+   */
   def loadIdfModel(fs: FileSystem, idfPath: Path): IDFModel = {
     val ois: ObjectInputStream = new ObjectInputStream(fs.open(idfPath))
     val idf: IDFModel = ois.readObject.asInstanceOf[IDFModel]

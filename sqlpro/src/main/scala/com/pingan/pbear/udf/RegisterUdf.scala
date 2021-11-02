@@ -1,10 +1,10 @@
 package com.pingan.pbear.udf
 
-import org.apache.spark.sql.hive.HiveContext
-import com.pingan.pbear.udf.nlp.AnsjNLP.ansjWordSegToString
-import com.pingan.pbear.udf.common.SimpleUdf.strLen
 import com.pingan.pbear.udf.common.GeoIp.{ip2city, ip2country}
-import org.apache.spark.Logging
+import com.pingan.pbear.udf.common.SimpleUdf.strLen
+import com.pingan.pbear.udf.nlp.AnsjNLP.ansjWordSegToString
+import org.apache.spark.internal.Logging
+import org.apache.spark.sql.hive.HiveContext
 
 
 /**

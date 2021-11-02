@@ -3,22 +3,20 @@ package com.pingan.pbear.rs
 import java.io.ObjectInputStream
 import java.text.SimpleDateFormat
 
-import com.typesafe.config.ConfigFactory
-import com.pingan.pbear.util.HDFSTool._
-import com.pingan.pbear.util.RedisUtil
-import com.pingan.pbear.util.JsonUtil.toJson
-import org.apache.hadoop.fs.{FileSystem, Path}
-import org.apache.spark.{SparkConf, SparkContext}
-import org.apache.spark.sql.SQLContext
-import org.apache.spark.mllib.feature._
-import org.apache.spark.mllib.linalg.SparseVector
-import org.apache.spark.Logging
-
-import scala.collection.mutable.ArrayBuffer
-import scalikejdbc._
-import com.pingan.pbear.util.SetupJdbc
 import com.pingan.pbear.common._
 import com.pingan.pbear.udf.nlp.AnsjNLP
+import com.pingan.pbear.util.HDFSTool._
+import com.pingan.pbear.util.JsonUtil.toJson
+import com.pingan.pbear.util.{RedisUtil, SetupJdbc}
+import com.typesafe.config.ConfigFactory
+import org.apache.hadoop.fs.{FileSystem, Path}
+import org.apache.spark.internal.Logging
+import org.apache.spark.mllib.feature._
+import org.apache.spark.sql.SQLContext
+import org.apache.spark.{SparkConf, SparkContext}
+import scalikejdbc._
+
+import scala.collection.mutable.ArrayBuffer
 
 /**
   * Created by zhangrunqin on 16-11-18.

@@ -7,11 +7,11 @@ import java.util.Date
 import com.pingan.pbear.common.AppConf
 import com.pingan.pbear.model.IdfModel
 import com.pingan.pbear.udf.nlp.AnsjNLP
-import com.pingan.pbear.util.{JsonUtil, RedisUtil}
+import com.pingan.pbear.util.RedisUtil
 import org.apache.hadoop.fs.{FileSystem, Path}
 import org.apache.hadoop.io.IOUtils
-import org.apache.spark.Logging
 import org.apache.spark.broadcast.Broadcast
+import org.apache.spark.internal.Logging
 import org.apache.spark.mllib.feature.HashingTF
 import org.apache.spark.mllib.linalg.SparseVector
 import org.apache.spark.{SparkConf, SparkContext}

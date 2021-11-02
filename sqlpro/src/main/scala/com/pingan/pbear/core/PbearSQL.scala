@@ -1,17 +1,18 @@
 package com.pingan.pbear.core
 
-import com.pingan.pbear.common.{AppConf, NotFindPbearException, SubTask}
-import org.apache.spark.{Logging, SparkConf, SparkContext}
-import com.pingan.pbear.util.FuncsUtil.readHdfsFile
-import com.pingan.pbear.core.parser._
+import com.pingan.pbear.common.{AppConf, SubTask}
 import com.pingan.pbear.core.executor._
+import com.pingan.pbear.core.parser._
+import com.pingan.pbear.util.FuncsUtil.readHdfsFile
 import com.pingan.pbear.util.{HDFSTool, RegexUtil, StringUtil}
+import org.apache.spark.internal.Logging
 import org.apache.spark.sql.hive.HiveContext
+import org.apache.spark.{SparkConf, SparkContext}
 
-import scala.collection.mutable.ArrayBuffer
-import scala.reflect.runtime.universe
 import scala.collection.JavaConversions._
+import scala.collection.mutable.ArrayBuffer
 import scala.io.Source
+import scala.reflect.runtime.universe
 /**
   * Created by zhangrunqin on 16-12-20.
   * 注意：

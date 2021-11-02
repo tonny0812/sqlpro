@@ -3,7 +3,7 @@ package com.pingan.pbear.util
 import com.pingan.pbear.common.AppConf
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.{FileStatus, FileSystem, Path}
-import org.apache.spark.Logging
+import org.apache.spark.internal.Logging
 
 /**
   * Created by zhangrunqin on 16-11-18.
@@ -28,7 +28,7 @@ object HDFSTool extends Logging{
       val fileStates = fs.listStatus(inputPath)
       for (subFs <- fileStates) {
         if (subFs.isDirectory) {
-          fileArray = fileArray ++: recursiveListFiles(subFs, fs)
+          fileArray = fileArray ++ recursiveListFiles(subFs, fs)
         } else if (subFs.isFile) {
           fileArray = fileArray :+ subFs.getPath
         }

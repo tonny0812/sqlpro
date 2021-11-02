@@ -18,12 +18,12 @@
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-mllib_2.10</artifactId>
+            <artifactId>spark-mllib_2.11</artifactId>
             <!--<scope>provided</scope>-->
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-sql_2.10</artifactId>
+            <artifactId>spark-sql_2.11</artifactId>
             <!--<scope>provided</scope>-->
         </dependency>
         <dependency>
@@ -36,19 +36,19 @@
         </dependency>
         <dependency>
             <groupId>net.debasishg</groupId>
-            <artifactId>redisclient_2.10</artifactId>
+            <artifactId>redisclient_2.11</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-streaming_2.10</artifactId>
+            <artifactId>spark-streaming_2.11</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-streaming-kafka_2.10</artifactId>
+            <artifactId>spark-streaming-kafka_2.11</artifactId>
         </dependency>
         <dependency>
             <groupId>org.scalikejdbc</groupId>
-            <artifactId>scalikejdbc_2.10</artifactId>
+            <artifactId>scalikejdbc_2.11</artifactId>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>

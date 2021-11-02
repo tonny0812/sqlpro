@@ -1,6 +1,6 @@
 package com.pingan.pbear.core.common
 
-import org.apache.spark.Logging
+import org.apache.spark.internal.Logging
 import org.apache.spark.sql.DataFrame
 import org.apache.spark.sql.hive.HiveContext
 

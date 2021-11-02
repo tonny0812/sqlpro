@@ -59,7 +59,7 @@
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-mllib_2.10</artifactId>
+            <artifactId>spark-mllib_2.11</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
@@ -75,11 +75,11 @@
         </dependency>
         <dependency>
             <groupId>net.debasishg</groupId>
-            <artifactId>redisclient_2.10</artifactId>
+            <artifactId>redisclient_2.11</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-streaming-kafka-0-10_2.11</artifactId>
+            <artifactId>spark-streaming-kafka_2.11</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.hadoop</groupId>
@@ -95,7 +95,7 @@
         </dependency>
         <dependency>
             <groupId>org.scalikejdbc</groupId>
-            <artifactId>scalikejdbc_2.10</artifactId>
+            <artifactId>scalikejdbc_2.11</artifactId>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -128,7 +128,7 @@
 
         <dependency>
             <groupId>com.stratio.datasource</groupId>
-            <artifactId>spark-mongodb_2.10</artifactId>
+            <artifactId>spark-mongodb_2.11</artifactId>
         </dependency>
 
          <dependency>
@@ -138,13 +138,13 @@
 
         <dependency>
             <groupId>org.scalactic</groupId>
-            <artifactId>scalactic_2.10</artifactId>
-            <version>3.0.1</version>
+            <artifactId>scalactic_2.11</artifactId>
+            <version>3.2.10</version>
         </dependency>
         <dependency>
             <groupId>org.scalatest</groupId>
-            <artifactId>scalatest_2.10</artifactId>
-            <version>3.0.1</version>
+            <artifactId>scalatest_2.11</artifactId>
+            <version>2.2.4</version>
             <scope>test</scope>
         </dependency>
 

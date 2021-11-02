@@ -4,8 +4,7 @@ import java.util
 
 import com.pingan.pbear.common.{SubTask, WrongCmdPbearException}
 import com.pingan.pbear.core.syntax.SyntaxRegex
-import com.pingan.pbear.util.FuncsUtil.connStrToConnParams
-import org.apache.spark.Logging
+import org.apache.spark.internal.Logging
 
 import scala.collection.JavaConversions._
 /**

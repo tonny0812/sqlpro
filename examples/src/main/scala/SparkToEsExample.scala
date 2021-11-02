@@ -1,12 +1,11 @@
 import org.apache.spark.sql.SQLContext
 import org.apache.spark.{SparkConf, SparkContext}
-import org.apache.spark.sql.hive.HiveContext
 import org.elasticsearch.spark._
-import org.elasticsearch.spark.rdd.EsSpark
+
 /**
-  * Created by zhangrunqin on 17-1-3.
-  * Es-hadoop 支持三种数据格式：Map,Case Class,Json
-  */
+ * Created by zhangrunqin on 17-1-3.
+ * Es-hadoop 支持三种数据格式：Map,Case Class,Json
+ */
 object SparkToEsExample {
   def main(args: Array[String]) {
     val conf = new SparkConf().setMaster("local[2]").setAppName("SparkToEs")
@@ -61,17 +60,18 @@ object SparkToEsExample {
     sc.makeRDD(Seq((otpMeta, otp), (mucMeta, muc), (sfoMeta, sfo))).saveToEsWithMeta("iteblog/2015")
     */
 
-//    val sqlCtx = new HiveContext(sc)
-//    val df = sqlCtx.sql("select * from parquet.`hdfs://127.0.0.1:9000/bigdata/user_cube/part_0")
+    //    val sqlCtx = new HiveContext(sc)
+    //    val df = sqlCtx.sql("select * from parquet.`hdfs://127.0.0.1:9000/bigdata/user_cube/part_0")
     val sqlCtx = new SQLContext(sc)
     //val df = sqlCtx.sql("select title,summary from json.`hdfs://127.0.0.1:9000/data/train/")
     val df = sqlCtx.read.json("hdfs://127.0.0.1:9000/data/train/").select("title", "createdTime")
     df.show()
-    df.toJSON.foreach(println)
-    df.toJSON.saveJsonToEs("spark/news1")
+//    df.toJSON.foreach(println)
+//    df.toJSON.saveJsonToEs("spark/news1")
     val schema = df.schema
     val len = schema.fields.length
     //Map的类型固定成了String -> String
+    import sqlCtx.implicits._
     val newDf = df.map(r => {
       var m = Map[String, String]()
       (0 until len).foreach(i => {
